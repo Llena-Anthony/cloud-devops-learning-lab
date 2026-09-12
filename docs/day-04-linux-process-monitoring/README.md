@@ -46,3 +46,15 @@ ps aux --sort=-%cpu | head
 ```
 
 This places the highest CPU consumers at the top of a short list. I then used the PID, owner, command, and CPU percentage together to identify which process was responsible. The command is useful for initial triage; a follow-up check should confirm whether the workload is expected before stopping anything.
+
+## Controlled CPU Load Experiment
+
+To create a short-lived, intentional CPU workload, I started `yes` processes in separate shell sessions and watched the sorted `ps` output:
+
+```bash
+yes > /dev/null
+```
+
+Each `yes` process continuously writes output that is discarded, making it suitable only for controlled testing. During the exercise, multiple `yes` processes appeared near the top of the CPU-sorted list at approximately 100% CPU each. I treated this as an expected result of the test and ended the test processes after observation. No terminal output is reproduced here.
+
+> Caution: Run synthetic load only on an instance you control, for a short time, and account for EC2 capacity and cost.
