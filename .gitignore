@@ -1,0 +1,28 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+config
+
+# Python and shell artifacts
+__pycache__/
+*.py[cod]
+*.log
+
+# Terraform state and variable files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
