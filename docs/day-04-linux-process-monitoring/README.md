@@ -69,3 +69,14 @@ Each `yes` process continuously writes output that is discarded, making it suita
 ## Lessons Learned
 
 Start with a broad process view, sort it by the resource under pressure, verify the process context, then take the least disruptive action. This is more reliable than terminating a process solely because it is at the top of a list.
+
+## Cloud and DevOps Relevance
+
+Linux process visibility is essential when investigating an EC2 instance that becomes slow, misses health checks, or experiences elevated CPU metrics. The same workflow supports incident triage before scaling, deploying a fix, or changing instance capacity. In a DevOps setting, application logs, CloudWatch metrics, and process inspection complement one another: metrics show the symptom, while process data helps identify the workload behind it.
+
+## Next Steps
+
+1. Compare CPU investigation with memory, disk, and load-average checks.
+2. Practice `top` or `htop` for a live process view.
+3. Correlate EC2 CPU utilization in CloudWatch with a process-level observation.
+4. Learn how systemd services and application logs provide process context.
