@@ -21,3 +21,18 @@ No instance identifiers, public IP addresses, SSH keys, or credentials are recor
 - Using an EC2 instance as a safe environment to build Linux troubleshooting habits
 
 Process monitoring is a point-in-time investigation: a high CPU value is a signal to investigate, not by itself proof that a process is faulty.
+
+## `ps aux` Process Information
+
+`ps aux` displays a broad snapshot of processes from all users. I used it to see which commands were running and who owned them.
+
+| Field | Meaning |
+| --- | --- |
+| `USER` | Account that owns the process |
+| `PID` | Unique process ID |
+| `%CPU` / `%MEM` | CPU and memory use reported by `ps` |
+| `VSZ` / `RSS` | Virtual-memory size and resident physical memory (KiB) |
+| `TTY` | Controlling terminal, if any |
+| `STAT` | Process state and scheduler flags |
+| `START` / `TIME` | Start time and accumulated CPU time |
+| `COMMAND` | Command that started the process |
