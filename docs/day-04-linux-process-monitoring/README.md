@@ -36,3 +36,13 @@ Process monitoring is a point-in-time investigation: a high CPU value is a signa
 | `STAT` | Process state and scheduler flags |
 | `START` / `TIME` | Start time and accumulated CPU time |
 | `COMMAND` | Command that started the process |
+
+## CPU Sorting and Identification
+
+I sorted the process list by descending CPU use with:
+
+```bash
+ps aux --sort=-%cpu | head
+```
+
+This places the highest CPU consumers at the top of a short list. I then used the PID, owner, command, and CPU percentage together to identify which process was responsible. The command is useful for initial triage; a follow-up check should confirm whether the workload is expected before stopping anything.
