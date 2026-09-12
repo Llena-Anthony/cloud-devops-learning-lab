@@ -58,3 +58,14 @@ yes > /dev/null
 Each `yes` process continuously writes output that is discarded, making it suitable only for controlled testing. During the exercise, multiple `yes` processes appeared near the top of the CPU-sorted list at approximately 100% CPU each. I treated this as an expected result of the test and ended the test processes after observation. No terminal output is reproduced here.
 
 > Caution: Run synthetic load only on an instance you control, for a short time, and account for EC2 capacity and cost.
+
+## Troubleshooting Observations
+
+- CPU sorting quickly made the intentionally created `yes` workload visible.
+- Multiple high-CPU processes can be legitimate when they match an expected test or workload.
+- PID alone is not enough context; checking `USER` and `COMMAND` reduces the chance of stopping the wrong process.
+- A process snapshot changes quickly, so repeat the command when investigating an active issue.
+
+## Lessons Learned
+
+Start with a broad process view, sort it by the resource under pressure, verify the process context, then take the least disruptive action. This is more reliable than terminating a process solely because it is at the top of a list.
